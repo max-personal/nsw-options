@@ -1,0 +1,49 @@
+/* Generic */
+
+/* @media  (min-width: 769px) {
+div.grid-container  {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+} */
+
+/* Input section */
+
+@media  (max-width: 768px) {
+    #left-side {
+        margin-bottom: 40px;
+    }
+}
+
+p#descr {
+    width: 77%;
+    margin-bottom: 25px;
+}
+
+form input {
+    margin: 10px;
+}
+
+div.num-container {
+    width: 210px;
+}
+
+input.num {
+    width: 135px;
+}
+
+/* Response section */
+
+table#output-payout {
+    width: 200px;
+}
+
+img {
+    display: block;
+    margin: 15px;
+}
+
+div.chart-box {
+    margin-top: 60px;
+}

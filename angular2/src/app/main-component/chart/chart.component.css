@@ -1,0 +1,33 @@
+div.chart-container {
+    position: relative;
+    width: 75%;
+}
+
+@media (max-width: 667px) {
+    div.chart-container {
+        width: 500px;
+    }    
+}
+
+@media (min-width: 461px) {
+    div #myChartMini {
+        display: none !important;
+    }
+
+    div #myChart {
+        display: inline-block;
+        position: relative;
+    }
+}
+
+@media (max-width: 460px) {
+    div #myChart {
+        display: none !important;
+    }
+
+    div #myChartMini {
+        display: inline-block;
+        position: relative;
+    }
+
+}
