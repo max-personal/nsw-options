@@ -81,7 +81,8 @@ def get_payouts():
     data = DataFrame.query.filter(DataFrame.quarter == 4, DataFrame.year >= earliest_year)
     df = pd.DataFrame([(d.tMax, d.price, d.meanPrice, d.year) for d in data],  columns=['tMax', 'price', 'meanPrice', 'year'])
     df['scaledPrice'] = df['price']*future/df['meanPrice']
-    df['payout'] = np.where((df['scaledPrice'] > strike) & (df['tMax'] >= temp_trigger), df['scaledPrice'] - strike, 0)
+    df['coefficient'] = np.where(df['year'] <= 2020, 6, 1)
+    df['payout'] = df['coefficient'] * np.where((df['scaledPrice'] > strike) & (df['tMax'] >= temp_trigger), df['scaledPrice'] - strike, 0)
     return df.groupby('year').sum('payout').reset_index()[['year', 'payout']].to_dict('records')
 
 @app.cli.command("load-data")
