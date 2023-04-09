@@ -8,7 +8,7 @@ def get_future():
     
     futures_src = 'https://www.asxenergy.com.au/futures_au/dataset'
     resp = requests.get(futures_src)
-    soup = BeautifulSoup(resp.text)
+    soup = BeautifulSoup(resp.text, features='html.parser')
     header = [x.text for x in soup.tr.find_all('td')]
     assert header[0] == 'New South Wales'
     # Find New South Wales table
