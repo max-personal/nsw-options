@@ -68,8 +68,6 @@ def load_data(file_loc):
 @app.route('/get_payouts', methods=['POST'])
 @cross_origin()
 def get_payouts():
-    log.info(300)
-    print(302)
     form = request.form
     if not [x in form for x in ['earliest_year, temp_trigger, strike']]:
         return {}
@@ -90,7 +88,7 @@ def load_full_data():
     db.create_all()
     if DataFrame.query.count() > 0:
         return 'Database already exists!'
-    load_data('static/full_df.csv')
+    load_data('static/assets/full_df.csv')
     return 'Loaded the big database!'
 
 @app.cli.command("update-data")
@@ -105,7 +103,7 @@ def load_mini_data():
     db.create_all()
     if DataFrame.query.count() > 0:
         return
-    load_data('static/mini_df.csv')
+    load_data('static/assets/mini_df.csv')
     return 'Loaded the small database!'
 
 @app.route('/')
