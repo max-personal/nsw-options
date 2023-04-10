@@ -110,28 +110,12 @@ def load_mini_data():
 def hello():
     return render_template('index.html')
 
-@app.route('/count_items')
-def count_items():
-    return f'The table has {DataFrame.query.count()} items!'
 
 @app.cli.command("drop-all-tables")
 def drop():
     db.drop_all()
     return 'Everything dropped!'
 
-@app.route('/test-post', methods=['POST'])
-@cross_origin()
-def test_post():
-    form = str(dict(request.form))
-    return f'Form received: {form}'
-
-@app.route('/get_price/<date_i>/<time_i>')
-def get_price(date_i, time_i):
-    # update_data_if_needed()
-    record = DataFrame.query.filter_by(date=date_i, time=time_i).first()
-    if not record:
-        return '<h1>Price not found!</h1>'
-    return f'<h1>Price is {record.price}</h1>'
 
 if __name__ == '__main__':
     app.run(port=5724, debug=True)
