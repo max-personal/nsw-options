@@ -1,0 +1,83 @@
+/* Body */
+
+body {
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+div.container {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: bold;
+    color: black;
+}
+
+
+/* Navigation bar */
+
+nav.navbar {
+    background-color: #95c1fb;
+    text-align: left;
+    border-bottom:1px solid #000;
+    /* width: 110vw; */
+}
+
+@media (min-width: 769px) {
+    div#navbar-cont-big {
+        padding: 18px;
+        margin-left: 18px;
+        font-size: 32px;
+    }
+
+    div#navbar-cont-small {
+        display: none;
+    }
+
+    nav#navbar {
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 469px) {
+    div#navbar-cont-big {
+        padding: 9px;
+        margin-left: 9px;
+        font-size: 21px;
+    }
+
+    div#navbar-cont-small {
+        display: none;
+    }
+
+}
+
+@media (max-width: 468px) {
+    div#navbar-cont-big {
+        display: none;
+    }
+
+    div#navbar-cont-small {
+        display: table-cell;
+        padding: 1px;
+        margin-left: 5px;
+        font-size: 6.5vw;
+        vertical-align: middle;
+        height: 9vh;
+        min-height: 25px !important;
+    }
+
+}
+
+/* Other */
+#descr {
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+p.col {
+    padding: 1%
+}
