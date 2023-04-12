@@ -3,13 +3,13 @@ div.chart-container {
     width: 75%;
 }
 
-@media (max-width: 667px) {
+@media (max-width: 640px) {
     div.chart-container {
-        width: 500px;
+        width: 480px;
     }    
 }
 
-@media (min-width: 461px) {
+@media (min-width: 481px) {
     div #myChartMini {
         display: none !important;
     }
@@ -20,7 +20,7 @@ div.chart-container {
     }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 480px) {
     div #myChart {
         display: none !important;
     }

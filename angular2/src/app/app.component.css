@@ -18,10 +18,14 @@ nav.navbar {
     background-color: #95c1fb;
     text-align: left;
     border-bottom:1px solid #000;
-    /* width: 110vw; */
 }
 
 @media (min-width: 769px) {
+
+    nav.navbar {
+        height: 80px;
+    }
+
     div#navbar-cont-big {
         padding: 18px;
         margin-left: 18px;
@@ -32,12 +36,9 @@ nav.navbar {
         display: none;
     }
 
-    nav#navbar {
-        height: 100px;
-    }
 }
 
-@media (max-width: 768px) and (min-width: 469px) {
+@media (max-width: 768px) and (min-width: 481px) {
     div#navbar-cont-big {
         padding: 9px;
         margin-left: 9px;
@@ -50,7 +51,12 @@ nav.navbar {
 
 }
 
-@media (max-width: 468px) {
+@media (max-width: 480px) {
+
+    nav.navbar {
+        width: 480px;
+    }
+
     div#navbar-cont-big {
         display: none;
     }
