@@ -1,0 +1,25 @@
+
+p#descr {
+    width: 77%;
+    margin-bottom: 25px;
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+form input {
+    margin: 10px;
+}
+
+div.num-container {
+    width: 210px;
+}
+
+input.num {
+    width: 135px;
+}
+
+

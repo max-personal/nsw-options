@@ -1,0 +1,22 @@
+<p id="descr">
+    This is a tool for calculating annual payouts for a certain option based on the energy markets 
+    of New South Wales, Australia. Please enter the earliest year, the temperature trigger and the strike price 
+    to see the payouts.
+</p>
+
+<form #siteform = "ngForm">
+    <div class="num-container">
+        <label for="var-a">Start from (year): </label>
+        <input type="number" class="num" name="earliest_year" value="2000" [(ngModel)]="earliest_year"><br><br>
+    </div>
+    <div class="num-container">
+        <label for="var-b">Temperature trigger (°C): </label>
+        <input type="number" class="num" name="temp_trigger" id="var-b-field" [(ngModel)]="temp_trigger"><br><br>
+    </div>
+    <div class="num-container">
+        <label for="var-b">Strike price (A$): </label>
+        <input type="number" class="num" name="strike" id="var-c-field" [(ngModel)]="strike"><br><br>
+    </div>
+    <input type="submit" value="Calculate" (click)="computeFunction()">
+    <input type="submit" value="Reset" (click)="resetValues()">
+</form>

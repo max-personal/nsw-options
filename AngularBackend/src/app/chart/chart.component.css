@@ -3,13 +3,22 @@ div.chart-container {
     width: 75%;
 }
 
+div.chart-box {
+    margin-top: 60px;
+}
+
 @media (max-width: 640px) {
     div.chart-container {
         width: 480px;
-    }    
+    }
 }
 
-@media (min-width: 481px) {
+div #myChart {
+    display: inline-block;
+    position: relative;
+}
+
+/* @media (min-width: 481px) {
     div #myChartMini {
         display: none !important;
     }
@@ -31,3 +40,4 @@ div.chart-container {
     }
 
 }
+ */
