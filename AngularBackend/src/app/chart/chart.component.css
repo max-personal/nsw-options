@@ -1,6 +1,7 @@
 div.chart-container {
     position: relative;
     width: 75%;
+    min-height: 400px;
 }
 
 div.chart-box {
@@ -17,27 +18,3 @@ div #myChart {
     display: inline-block;
     position: relative;
 }
-
-/* @media (min-width: 481px) {
-    div #myChartMini {
-        display: none !important;
-    }
-
-    div #myChart {
-        display: inline-block;
-        position: relative;
-    }
-}
-
-@media (max-width: 480px) {
-    div #myChart {
-        display: none !important;
-    }
-
-    div #myChartMini {
-        display: inline-block;
-        position: relative;
-    }
-
-}
- */

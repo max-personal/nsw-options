@@ -1,0 +1,10 @@
+.google-map {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+iframe {
+    width: 300px;
+    height: 180px;
+    border: 0px;
+}

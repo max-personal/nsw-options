@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Chart, ChartConfiguration, Colors, registerables } from 'node_modules/chart.js'
 import { YearPayoutList } from '../form/form.component';
-import { DataService } from '../services/data.service';
 
 Chart.register(Colors);
 
@@ -14,24 +13,26 @@ Chart.register(...registerables);
 })
 export class ChartComponent implements OnInit {
 
-  // formResponse: ResponseConfigObject;
-  payoutList: YearPayoutList;
+  @Input() payoutList: YearPayoutList;
+  yearsTotal: number = 0;
 
-  constructor(private dataService: DataService) {
-  }
+  ngOnInit() {
 
-  checkSmth() {
-    console.log(this.payoutList)
-  }
+    var years = [];
+    var payouts = [];
+    for (var obj in this.payoutList) {
+      years.push(this.payoutList[obj]['year']);
+      payouts.push(this.payoutList[obj]['payout']);
+    }
+    this.yearsTotal = this.payoutList.length;
 
-  renderChart() {
-    const myChart = new Chart('myChart', {
+    const chartConfig: ChartConfiguration = {
       type: 'bar',
       data: {
-        labels: [2020, 2021, 2022],
+        labels: years,
         datasets: [{
           label: 'Payout',
-          data: [5, 10, 16],
+          data: payouts,
           borderWidth: 0.7,
           borderColor: '#000000',
           barPercentage: 0.8,
@@ -40,6 +41,7 @@ export class ChartComponent implements OnInit {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         scales: {
           y: {
             beginAtZero: true,
@@ -81,25 +83,8 @@ export class ChartComponent implements OnInit {
           }
         }
       }
-    });
-  }
+    }
 
-  ngOnInit() {
-
-    this.dataService.responseEmitter.subscribe((response) => {
-      console.log('Payout list caught by chart!');
-      this.payoutList = response?.computedAnnualPayouts;
-      console.log(this.payoutList)
-
-
-      var years = [];
-      var payouts = [];
-
-      for (var obj in this.payoutList) {
-        years.push(this.payoutList[obj]['year']);
-        payouts.push(this.payoutList[obj]['payout']);
-      }
-
-    })
+    new Chart('myChart', chartConfig);
   }
 }

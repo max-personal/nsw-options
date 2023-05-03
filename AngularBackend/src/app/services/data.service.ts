@@ -17,9 +17,19 @@ export class DataService {
   responseEmitter = new Subject<ResponseConfigObject>();
 
   raiseEmitterEvent(data: ResponseConfigObject) {
-    console.log('Caught by service!');
-    console.log(data);
     this.responseEmitter.next(data)
+  }
+
+  displayModeEmitter = new Subject<string>();
+
+  raiseDisplayModeEvent(data: string) {
+    this.displayModeEmitter.next(data)
+  }
+
+  priceMessageEmitter = new Subject<string>();
+
+  raisePriceMessageEvent(data: string) {
+    this.priceMessageEmitter.next(data)
   }
 
 }

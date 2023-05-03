@@ -10,19 +10,25 @@ import { ResponseConfigObject } from '../form/form.component';
 export class OutputTableComponent implements OnInit {
 
   formResponse: ResponseConfigObject;
+  displayMode: string;
+  priceMessage: string;
 
   constructor(private dataService: DataService) {
-  }
-
-  checkSmth() {
-    console.log(this.formResponse)
   }
 
   ngOnInit() {
     this.dataService.responseEmitter.subscribe((response) => {
       this.formResponse = response;
-      console.log('L5!');
-      console.log(response);
+    })
+
+    this.dataService.displayModeEmitter.subscribe((response) => {
+      this.displayMode = response;
+    })
+
+    this.dataService.priceMessageEmitter.subscribe((response) => {
+      console.log('Caught price!')
+      console.log(this.priceMessage)
+      this.priceMessage = response;
     })
   }
 

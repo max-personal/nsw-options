@@ -1,11 +1,8 @@
-import os
-import json
 import requests
-import datetime
 from bs4 import BeautifulSoup
 
 def get_future():
-    
+
     futures_src = 'https://www.asxenergy.com.au/futures_au/dataset'
     resp = requests.get(futures_src)
     soup = BeautifulSoup(resp.text, features='html.parser')
@@ -23,4 +20,3 @@ def get_future():
     # last value in the row
     future_price = float(q423_entries[6].text)
     return future_price
-    

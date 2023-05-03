@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './services/data.service';
+import { YearPayoutList } from './form/form.component';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +10,15 @@ import { DataService } from './services/data.service';
 export class AppComponent implements OnInit {
 
   hasChart: boolean = false;
+  computedAnnualPayouts: YearPayoutList = null;
 
   constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
     this.dataService.responseEmitter.subscribe((response) => {
+      this.computedAnnualPayouts = response.computedAnnualPayouts;
       this.hasChart = (response.computedAnnualPayouts != null);
-      console.log('Chart: ' + this.hasChart)
     })
   }
 

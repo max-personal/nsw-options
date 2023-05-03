@@ -1,12 +1,11 @@
-
-
-<!-- <p *ngIf="emptyFormWarning">Please fill all three fields!</p>     -->
-<p *ngIf="formResponse?.dbErrorMessage">Problem accessing the database!</p>
-<p *ngIf="formResponse?.pending == true">Loading data. This usually takes a few seconds...
-    <img src="assets/windmill_icon.gif" width="200px" alt="Loading" title="Icon from Tumblr, author Nico (nilgi25)">
+<p *ngIf="displayMode == 'message'" id="price-message">
+    {{priceMessage}}
 </p>
 
-<button (click)="checkSmth()">Check from output table!</button>
+<p *ngIf="formResponse?.dbErrorMessage">Problem accessing the database!</p>
+<p *ngIf="formResponse?.pending == true">Loading data. This usually takes a few seconds...
+    <img src="assets/windmill_icon.gif" width="150px" alt="Loading" title="Icon from Tumblr, author Nico (nilgi25)">
+</p>
 
 
 <table *ngIf="formResponse?.computedAnnualPayouts != null" class="table table-hover table-bordered table-striped"  id="output-payout">
