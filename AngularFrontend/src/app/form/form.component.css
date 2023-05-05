@@ -1,15 +1,7 @@
 /* Text blocks */
-p#tool-description {
+p.info {
     width: 77%;
     margin-bottom: 35px;
-    font-size: 15px;
-    padding: 12px;
-    box-sizing: border-box;
-}
-
-p#futures-description {
-    width: 77%;
-    margin-top: 35px;
     font-size: 15px;
     padding: 12px;
     box-sizing: border-box;
@@ -73,13 +65,3 @@ div.alert-danger {
         display: none;
     }
 }
-
-/* Messages about reading/updating the futures price */
-p#price-message {
-    width: 77%;
-    margin-bottom: 35px;
-    font-size: 15px;
-    padding: 12px;
-    box-sizing: border-box;
-}
-

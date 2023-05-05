@@ -1,4 +1,4 @@
-<p id="tool-description">
+<p class="info" id="tool-description">
     This is a tool for calculating annual payouts for a certain option based on the energy markets 
     of New South Wales, Australia. Please enter the earliest year, the temperature trigger and the strike price 
     to see the payouts.
@@ -48,7 +48,7 @@
 </div>
 
 
-<p id="futures-description">
+<p class="info" id="futures-description">
     Computing the payout table requires scraping an outside website for the current futures price. In order to speed up the 
     computation process, we can save the current price on a local server and refresh it when necessary. Please use the two 
     buttons below in order to do so.
@@ -62,6 +62,6 @@
     <button type="button" class="btn btn-primary btn-futures sm-view" (click)="showFuturesPrice()">Show</button>
 </div>
 
-<p *ngIf="displayMode == 'message'" id="price-message">
+<p class="info" *ngIf="displayMode == 'message'" id="price-message">
     {{priceMessage}}
 </p>

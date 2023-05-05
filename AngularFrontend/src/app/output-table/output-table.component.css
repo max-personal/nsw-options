@@ -1,10 +1,18 @@
+/* Service messages */
+
+p.service-message {
+    margin-top: 20px;
+}
+
 /* Output table */
 
 table#output-payout {
+    margin-top: 20px;
     width: 200px;
 }
 
 /* Table column */
+
 p.col {
     padding: 1%
 }

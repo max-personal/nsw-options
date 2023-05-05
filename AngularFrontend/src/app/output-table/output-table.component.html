@@ -1,5 +1,5 @@
-<p *ngIf="responseConfig?.dbErrorMessage">Problem accessing the database!</p>
-<p *ngIf="responseConfig?.pending == true">Loading data. This usually takes a few seconds...
+<p class="service-message" *ngIf="responseConfig?.dbErrorMessage">Problem accessing the database!</p>
+<p class="service-message" *ngIf="responseConfig?.pending == true">Loading data. This usually takes a few seconds...
     <img src="assets/windmill_icon.gif" width="150px" alt="Loading" title="Icon from Tumblr, author Nico (nilgi25)">
 </p>
 
