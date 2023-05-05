@@ -37,8 +37,9 @@ export class HighchartDailyDropdownComponent implements OnInit {
     formData.append('year', this.yearSelectedStr);
     formData.append('temp_trigger', this.responseConfig.tempTrigger.toFixed(1));
     formData.append('strike', this.responseConfig.strikePrice.toFixed(1));
-    formData.append('futures_price', this.responseConfig.futuresPrice.toFixed(1));
-
+    if (this.responseConfig.futuresPrice) {
+      formData.append('futures_price', this.responseConfig.futuresPrice.toFixed(1));
+    }
     this.http.post('http://localhost:5724/get_daily_data', formData)
     .subscribe((res: DailyPayoutList) =>
       {

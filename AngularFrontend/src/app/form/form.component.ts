@@ -151,7 +151,7 @@ export class FormComponent implements OnInit {
           this.broadcastPriceMessage(this.priceMessage);
         }
         else {
-          this.priceMessage = 'The current futures price is not available. Please use the Load button to retrieve it!';
+          this.priceMessage = 'The current futures price is not available. Please use the Update button to retrieve it!';
           this.broadcastPriceMessage(this.priceMessage);
         }
       },
@@ -182,7 +182,7 @@ export class FormComponent implements OnInit {
 
   backendDailyPayouts(formData) {
     var year = formData.get('earliest_year');
-    
+
     formData.set('year', year);
     formData.delete('earliest_year');
     this.http.post('http://localhost:5724/get_daily_data', formData)

@@ -84,22 +84,19 @@ class FuturePrice(db.Model):
         return f'Time {self.timestamp} - price {self.price}'
 
 @app.route('/')
-def hello():
+def main_page():
     return render_template('index.html')
 
 def load_dataframe_from_csv(file_loc):
     df = pd.read_csv(file_loc)
-
     for row in df.iterrows():
         row_dict = row[1].to_dict()
         obj = MainDataTable(row_dict)
         db.session.add(obj)
-
     db.session.commit()
 
 def load_temps_from_csv(file_loc):
     df = pd.read_csv(file_loc)
-
     for row in df.iterrows():
         row_dict = row[1].to_dict()
         month, day, year = row_dict['Dates'].split('/')
@@ -108,7 +105,6 @@ def load_temps_from_csv(file_loc):
                         'day': day,
                         'tMax': row_dict['Tmax']})
         db.session.add(obj)
-
     db.session.commit()
 
 @app.route('/future_price', methods=['GET', 'POST'])
@@ -152,7 +148,6 @@ def get_payouts():
                                   MainDataTable.priceRatio > strike_price/futures_price)
 
     df = pd.DataFrame([(d.year, d.priceRatio) for d in data],  columns=['year', 'priceRatio'])
-    log.info(df.shape)
 
     if df.shape[0] == 0:
         return [{'year': year, 'payout': 0.0} for year in range(earliest_year, 2023)]
@@ -217,18 +212,26 @@ def update_max_temps(file_loc):
         return
     db.create_all()
     MaxTemps.query.delete()
+    db.session.commit()
     load_temps_from_csv(file_loc)
     log.info('Temperatures table successfully uploaded!')
 
 @app.cli.command("drop_all_tables")
-def drop():
-    log.info('All tables dropped!')
+def drop_all_tables():
     db.drop_all()
+    log.info('All tables dropped!')
 
 @app.cli.command("init_tables")
 def init_tables():
-    log.info('All tables initialized!')
     db.create_all()
+    log.info('All tables initialized!')
+
+@app.cli.command("drop_futures_price")
+def drop_futures_price():
+    FuturePrice.query.delete()
+    db.session.commit()
+    log.info('Futures price dropped!')
+
 
 if __name__ == '__main__':
     app.run(port=5724, debug=True)
