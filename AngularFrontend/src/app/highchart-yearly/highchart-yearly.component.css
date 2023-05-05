@@ -1,0 +1,19 @@
+hr {
+    height: 1px;
+    background-color: #888888;
+    border: none;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+/* "The chart below... */
+p#descr {
+    margin-top: 35px;
+    width: 80%;
+}
+
+/* Chart */
+div.container {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}

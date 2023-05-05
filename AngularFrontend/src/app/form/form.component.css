@@ -1,0 +1,78 @@
+/* Text blocks */
+p#tool-description {
+    width: 77%;
+    margin-bottom: 35px;
+    font-size: 15px;
+    padding: 12px;
+}
+
+p#futures-description {
+    width: 77%;
+    margin-top: 35px;
+    font-size: 15px;
+    padding: 12px;
+}
+
+/* Entire input form */
+div#main-form {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+/* Individual blocks containing a prompt + an input field */
+div.form-group {
+    width: 210px;
+}
+
+/* Individual input fields */
+form input {
+    margin: 10px;
+}
+
+/* Message when year input is invalid */
+div.alert-danger {
+    width: 27%;
+    padding: 5px;
+    font-size: 11px;
+    font-weight: bolder;
+}
+
+/* Buttons */
+.btn-primary {
+    margin: 10px;
+}
+
+/* Futures buttons */
+.btn-futures {
+    width: 24%;
+}
+
+/* Mobile version for futures buttons */
+@media (max-width: 768px) {
+    .lg-view {
+        display: none;
+    }
+
+    .sm-view {
+        display: inline-block;
+    }
+}
+
+@media (min-width: 769px) {
+    .lg-view {
+        display: inline-block;
+    }
+
+    .sm-view {
+        display: none;
+    }
+}
+
+/* Messages about reading/updating the futures price */
+p#price-message {
+    width: 77%;
+    margin-bottom: 35px;
+    font-size: 15px;
+    padding: 12px;
+}
+

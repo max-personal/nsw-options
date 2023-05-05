@@ -1,0 +1,21 @@
+<body>
+  <app-navbar></app-navbar>
+
+
+  <div class="modal-body row grid-container">
+    <div class="col-sm-4" id="left-side">
+      <app-form></app-form>
+    </div>
+
+
+    <div class="col-sm-8" id="right-side">
+      <app-output-table></app-output-table>
+      <div *ngIf="showAnnualChart">
+        <app-highchart-yearly *ngIf='showAnnualChart' [payoutList]="computedAnnualPayouts"></app-highchart-yearly>
+        <app-highchart-daily-dropdown [responseConfig]="responseConfig"></app-highchart-daily-dropdown>
+        <app-highchart-daily *ngIf='showDailyChart' [payoutList]="computedDailyPayouts"></app-highchart-daily>
+        <app-map-frame *ngIf='showAnnualChart'></app-map-frame>
+      </div>
+    </div>
+  </div>
+</body>

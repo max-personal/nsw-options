@@ -1,0 +1,23 @@
+<p *ngIf="responseConfig?.dbErrorMessage">Problem accessing the database!</p>
+<p *ngIf="responseConfig?.pending == true">Loading data. This usually takes a few seconds...
+    <img src="assets/windmill_icon.gif" width="150px" alt="Loading" title="Icon from Tumblr, author Nico (nilgi25)">
+</p>
+
+
+<table *ngIf="responseConfig?.computedAnnualPayouts != null" class="table table-hover table-bordered table-striped"  id="output-payout">
+    <thead>
+        <tr>
+        <th scope="col" id="year-col">Year</th>
+        <th scope="col" id="payout-col">Payout (A$)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container>
+        <tr *ngFor="let record of responseConfig.computedAnnualPayouts">
+            <td> {{record.year}} </td>
+            <td> {{record.payout | number:'1.2-2':'en-AU' }} </td>
+        </tr>
+        </ng-container>
+
+    </tbody>
+</table>

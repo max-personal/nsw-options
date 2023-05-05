@@ -1,0 +1,22 @@
+hr {
+    height: 1px;
+    background-color: #888888;
+    border: none;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+/* Text */
+p {
+    margin-top: 35px;
+}
+
+/* Map frame */
+iframe {
+    width: 300px;
+    height: 180px;
+    border-width: 2px;
+    border-style: solid;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}

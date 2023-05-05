@@ -1,0 +1,67 @@
+<p id="tool-description">
+    This is a tool for calculating annual payouts for a certain option based on the energy markets 
+    of New South Wales, Australia. Please enter the earliest year, the temperature trigger and the strike price 
+    to see the payouts.
+</p>
+
+<div class="container class-form-area" id="main-form">
+    <form [formGroup]='inputForm' (ngSubmit)="computeAllPayouts()">
+        <div class="form-group">
+            <label>Start from (year):</label>
+            <input
+            type="number"
+            placeholder="2000"
+            class="form-control"
+            name="earliestYear"
+            formControlName="earliestYear">
+        </div>
+
+        <div *ngIf="fc.earliestYear.status == 'INVALID'" class="alert alert-danger">
+            The year should be an integer value between 1998 and 2022!
+        </div>
+
+
+        <div class="form-group">
+            <label>Temperature trigger (°C):</label>
+            <input
+            type="number"
+            placeholder="20"
+            class="form-control"
+            name="tempTrigger"
+            formControlName="tempTrigger">
+        </div>
+
+        <div class="form-group">
+            <label>Strike price (A$):</label>
+            <input
+            type="number"
+            placeholder="300"
+            class="form-control"
+            name="strikePrice"
+            formControlName="strikePrice">
+        </div>
+        <div class="buttons-group">
+            <button type="submit" class="btn btn-primary" [disabled]="inputForm.invalid">Calculate</button>
+            <button type="button" class="btn btn-primary" (click)="resetValues()">Reset</button>
+        </div>
+    </form>
+</div>
+
+
+<p id="futures-description">
+    Computing the payout table requires scraping an outside website for the current futures price. In order to speed up the 
+    computation process, we can save the current price on a local server and refresh it when necessary. Please use the two 
+    buttons below in order to do so.
+</p>
+
+<div class="container class-form-area button-container">
+    <button type="button" class="btn btn-primary btn-futures lg-view" (click)="loadFuturesPrice()">Update futures price</button>
+    <button type="button" class="btn btn-primary btn-futures sm-view" (click)="loadFuturesPrice()">Update</button>
+    <br>
+    <button type="button" class="btn btn-primary btn-futures lg-view" (click)="showFuturesPrice()">Show futures price</button>
+    <button type="button" class="btn btn-primary btn-futures sm-view" (click)="showFuturesPrice()">Show</button>
+</div>
+
+<p *ngIf="displayMode == 'message'" id="price-message">
+    {{priceMessage}}
+</p>

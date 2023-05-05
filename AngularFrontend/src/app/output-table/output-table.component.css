@@ -1,0 +1,16 @@
+/* Output table */
+
+table#output-payout {
+    width: 200px;
+}
+
+/* Table column */
+p.col {
+    padding: 1%
+}
+
+/* Windmill icon */
+img {
+    display: block;
+    margin: 15px;
+}

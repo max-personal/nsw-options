@@ -1,0 +1,23 @@
+
+hr {
+    height: 1px;
+    background-color: #888888;
+    border: none;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+#dropdown-text {
+    width: 80%;
+    text-align: left;
+}
+
+p.pending-message {
+    margin-top: 20px;
+}
+
+
+select.custom-select {
+    margin-right: 10px;
+}
+

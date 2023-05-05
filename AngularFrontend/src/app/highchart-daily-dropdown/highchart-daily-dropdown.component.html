@@ -1,0 +1,39 @@
+
+<div id="dropdown-text">
+    <hr>
+    <p>
+        The following chart gives a more detailed information for the payouts in {{responseConfig.year}}. The vertical bars show 
+        the total payout on a given day. The dark blue line shows the maximum temperature on the same day.
+    </p>
+
+    <div class="container mt-5">
+        <div class="row custom-wrapper">
+            <form [formGroup]="selectYearForm" (ngSubmit)="updateDailyChart()">
+                <div class="d-grid">
+                    <p class="select-form-prompt">Display the daily data for a different year:</p>
+                    <select
+                    class="custom-select mb-3"
+                    (change)="changeYear($event)"
+                    formControlName="yearSelected"
+                    >
+                        <option value="">Select year</option>
+                        <option *ngFor="let year of years" [value]="year">
+                            {{ year }}
+                        </option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary bnt-year-select" [disabled]="selectYearForm.invalid">
+                    Show
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <p *ngIf="responseConfig?.pendingDataChart == true" class="pending-message">
+        Loading daily data for {{yearSelectedStr}}. This usually takes a few seconds...
+        <br>
+        <img src="assets/windmill_icon.gif" width="150px" alt="Loading" title="Icon from Tumblr, author Nico (nilgi25)">
+    </p>
+
+</div>
