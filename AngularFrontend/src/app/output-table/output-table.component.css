@@ -1,13 +1,13 @@
 /* Service messages */
 
 p.service-message {
-    margin-top: 20px;
+    margin-top: 12px;
 }
 
 /* Output table */
 
 table#output-payout {
-    margin-top: 20px;
+    margin-top: 12px;
     width: 200px;
 }
 
