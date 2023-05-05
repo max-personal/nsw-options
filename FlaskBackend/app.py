@@ -160,12 +160,6 @@ def get_payouts():
     df['payout'] = (df['priceRatio']*futures_price - strike_price) * np.where(df['year'] <= 2020, 6, 1)
 
     resp = df.groupby('year').sum('payout').reset_index()[['year', 'payout']].to_dict('records')
-    # log.info(resp)
-    # years_with_payouts = set(x['year'] for x in resp)
-    # for year in range(earliest_year, 2023):
-    #     if str(year) not in years_with_payouts:
-    #         resp.append({'year': year, 'payout': 0.0})
-    # resp.sort(key = lambda x: x['year'])
     return resp
 
 
