@@ -1,10 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AnnualPayoutList } from '../form/form.component';
 import * as Highcharts from 'highcharts';
-// import * as Highcharts from 'highcharts/highstock';
-
-// ...
-
 
 @Component({
   selector: 'app-highchart-yearly',
@@ -15,7 +11,6 @@ import * as Highcharts from 'highcharts';
 export class HighchartYearlyComponent {
 
   @Input() payoutList: AnnualPayoutList;
-  chartWidth: number = 700;
   years: Array<number> = [];
   payouts: Array<Array<number>> = [];
 
@@ -25,9 +20,9 @@ export class HighchartYearlyComponent {
   chartOptions: any = {
     chart: {
       type: "column",
-      width: this.chartWidth,
+      width: 750,
     },
-    colors: ['#95c1fb'],
+    colors: ['#337ab7'],
     title: {
       text: "Annual payouts (A$)",
       style: {
@@ -103,7 +98,6 @@ export class HighchartYearlyComponent {
       this.years.push(this.payoutList[obj]['year']);
       this.payouts.push([this.payoutList[obj]['year'], parseFloat(this.payoutList[obj]['payout'].toFixed(2))]);
     }
-    this.chartWidth = 100 + this.years.length * 50;
 
   }
 }

@@ -5,11 +5,13 @@ hr {
     border: none;
     margin-top: 35px;
     margin-bottom: 35px;
+    margin-left: 0px;
+    width: 80%;
 }
 
 #dropdown-text {
-    width: 80%;
     text-align: left;
+    width: 80%;
 }
 
 p.pending-message {

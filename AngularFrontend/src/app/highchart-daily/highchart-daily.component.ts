@@ -20,7 +20,7 @@ export class HighchartDailyComponent {
   chartOptions: any = {
     chart: {
         zoomType: 'xy',
-        width: 700,
+        width: 750,
     },
     credits: 'false',
     title: {
@@ -96,7 +96,7 @@ export class HighchartDailyComponent {
         type: 'column',
         yAxis: 1,
         data: this.payouts,
-        color: '#95c1fb',
+        color: '#337ab7',
         tooltip: {
             valuePrefix: 'A$'
         }
@@ -104,7 +104,7 @@ export class HighchartDailyComponent {
         name: 'Maximum temperature (°C)',
         type: 'spline',
         data: this.temps,
-        color: '#0000dd',
+        color: '#ee8e06',
         tooltip: {
             valueSuffix: '°C'
         }

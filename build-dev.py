@@ -1,5 +1,5 @@
-""" This is a script connecting the Angular frontend and the Flask backend.
-Run the following script in a command line to be able to view the entire project 
+""" This is a script linking the Angular frontend and the Flask backend.
+Run the following script in a command line from AngularFrontend to be able to view the entire project 
 through the backend port:
 
 for /L %i in (1,1,500) do (
@@ -31,9 +31,9 @@ try:
     html_files = [file for file in files if re.fullmatch(r'.+\.html', file)]
 
     for file in static_files:
-        shutil.copyfile(f'dist/{frontend_dir}/{file}', f'../FlaskBackend/static/{file}')
+        shutil.copyfile(f'dist/{frontend_dir}/{file}', f'../FlaskBackend/backend/static/{file}')
     for file in html_files:
-        shutil.copyfile(f'dist/{frontend_dir}/{file}', f'../FlaskBackend/templates/{file}')
+        shutil.copyfile(f'dist/{frontend_dir}/{file}', f'../FlaskBackend/backend/templates/{file}')
 
 except Exception as e:
     dir_exists = False

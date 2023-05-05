@@ -1,9 +1,10 @@
-import logging
+""" Tools used by backend requests """
+
 import requests
 from bs4 import BeautifulSoup
 
 def get_future():
-
+    """ Retrieve the futures price from the website """
     futures_src = 'https://www.asxenergy.com.au/futures_au/dataset'
     resp = requests.get(futures_src)
     soup = BeautifulSoup(resp.text, features='html.parser')

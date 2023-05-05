@@ -4,6 +4,7 @@ p#tool-description {
     margin-bottom: 35px;
     font-size: 15px;
     padding: 12px;
+    box-sizing: border-box;
 }
 
 p#futures-description {
@@ -11,22 +12,26 @@ p#futures-description {
     margin-top: 35px;
     font-size: 15px;
     padding: 12px;
+    box-sizing: border-box;
 }
 
 /* Entire input form */
 div#main-form {
     margin-top: 35px;
     margin-bottom: 35px;
+    box-sizing: border-box;
 }
 
 /* Individual blocks containing a prompt + an input field */
 div.form-group {
     width: 210px;
+    box-sizing: border-box;
 }
 
 /* Individual input fields */
 form input {
     margin: 10px;
+    box-sizing: border-box;
 }
 
 /* Message when year input is invalid */
@@ -35,6 +40,7 @@ div.alert-danger {
     padding: 5px;
     font-size: 11px;
     font-weight: bolder;
+    box-sizing: border-box;
 }
 
 /* Buttons */
@@ -74,5 +80,6 @@ p#price-message {
     margin-bottom: 35px;
     font-size: 15px;
     padding: 12px;
+    box-sizing: border-box;
 }
 
