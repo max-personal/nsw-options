@@ -40,7 +40,7 @@ export class HighchartDailyDropdownComponent implements OnInit {
     if (this.responseConfig.futuresPrice) {
       formData.append('futures_price', this.responseConfig.futuresPrice.toFixed(1));
     }
-    this.http.post('http://localhost:5724/get_daily_data', formData)
+    this.http.post('https://nsw-options-v2.herokuapp.com/get_daily_data', formData)
     .subscribe((res: DailyPayoutList) =>
       {
         this.responseConfig.computedDailyPayouts = res;

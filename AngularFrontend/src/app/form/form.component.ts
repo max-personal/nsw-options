@@ -106,7 +106,7 @@ export class FormComponent implements OnInit {
     this.setDisplayMode('message');
     var emptyFormData: any = new FormData();
 
-    this.http.post('http://localhost:5724/future_price', emptyFormData)
+    this.http.post('https://nsw-options-v2.herokuapp.com/future_price', emptyFormData)
       .subscribe((res: any) =>
         {
           var message = 'Futures price updated! The current value is A$' + res.price + '.';
@@ -126,7 +126,7 @@ export class FormComponent implements OnInit {
 
   getSavedFuturesPrice = (resolved, rejected) => {
     var emptyFormData: any = new FormData();
-    this.http.get('http://localhost:5724/future_price', emptyFormData)
+    this.http.get('https://nsw-options-v2.herokuapp.com/future_price', emptyFormData)
       .subscribe((res: any) =>
         {
           if (Object.entries(res).length === 0) {
@@ -162,7 +162,7 @@ export class FormComponent implements OnInit {
   }
 
   backendYearlyPayouts(formData) {
-      this.http.post('http://localhost:5724/get_yearly_payouts', formData)
+      this.http.post('https://nsw-options-v2.herokuapp.com/get_yearly_payouts', formData)
       .subscribe((res: AnnualPayoutList) =>
         {
           this.responseConfig.pending = false;
@@ -185,7 +185,7 @@ export class FormComponent implements OnInit {
 
     formData.set('year', year);
     formData.delete('earliest_year');
-    this.http.post('http://localhost:5724/get_daily_data', formData)
+    this.http.post('https://nsw-options-v2.herokuapp.com/get_daily_data', formData)
     .subscribe((res: DailyPayoutList) =>
       {
         this.responseConfig.computedDailyPayouts = res;
