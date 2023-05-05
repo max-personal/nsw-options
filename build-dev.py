@@ -1,3 +1,12 @@
+""" This is a script connecting the Angular frontend and the Flask backend.
+Run the following script in a command line to be able to view the entire project 
+through the backend port:
+
+for /L %i in (1,1,500) do (
+  ng build --base-href /static/   && python3 ..\build-dev.py   && timeout 1
+)
+"""
+
 import os
 import re
 import shutil
@@ -7,38 +16,24 @@ if 'dist' in os.listdir():
 
 directories = os.listdir()
 
-assert 'static' in directories
+assert 'FlaskBackend' in directories
 
-for directory in directories:
-    if not re.match(r'[_\.]', directory) and \
-    os.path.isdir(directory) and \
-    directory not in ['static', 'templates', 'env', 'instance', 'angular-flask']:
-        break
+frontend_dir = 'AngularFrontend'
 
-os.chdir(directory)
+os.chdir(frontend_dir)
 # We're in the Angular project directory
 
 dir_exists = True
 
 try:
-    files = os.listdir(f'dist/{directory}')
+    files = os.listdir(f'dist/{frontend_dir}')
     static_files = [file for file in files if re.fullmatch(r'.+(\.js(\.map)?|\.ico)', file)]
     html_files = [file for file in files if re.fullmatch(r'.+\.html', file)]
 
     for file in static_files:
-        shutil.copyfile(f'dist/{directory}/{file}', f'../static/{file}')
+        shutil.copyfile(f'dist/{frontend_dir}/{file}', f'../FlaskBackend/static/{file}')
     for file in html_files:
-        shutil.copyfile(f'dist/{directory}/{file}', f'../templates/{file}')
-
-    # correct link to chart.umd.js
-
-    shutil.copyfile('node_modules/chart.js/dist/chart.umd.js', '../static/chart.umd.js')
-    shutil.copyfile('node_modules/chart.js/dist/chart.umd.js.map', '../static/chart.umd.js.map')
-    file = f'../templates/{html_files[0]}'
-    with open(file, 'r') as f:
-        text = re.sub(r'<script src="[\w/.]+chart.umd.js"></script>', '<script src="chart.umd.js"></script>' ,f.read())
-    with open(file, 'w') as f:
-        f.write(text)
+        shutil.copyfile(f'dist/{frontend_dir}/{file}', f'../FlaskBackend/templates/{file}')
 
 except Exception as e:
     dir_exists = False
