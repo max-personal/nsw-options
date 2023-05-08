@@ -87,7 +87,7 @@ export class FormComponent implements OnInit {
   resetInputForm() {
     this.inputForm.patchValue({
       earliestYear: 2000,
-      tempTrigger: 20,
+      tempTrigger: 40,
       strikePrice: 300,
     })
   }
